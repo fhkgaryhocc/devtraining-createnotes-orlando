@@ -23,7 +23,7 @@
 			noteBody: c.data.note,
 			noteTitle: c.data.title
 		}).then(function(r) {
-			$rootScope.$emit('updateNoteList', r.data.noteID);
+			$rootScope.$emit('updateNoteList', r.data);
 		});
 	}	
 }]]></client_script>
@@ -56,6 +56,10 @@
 				note.title = input.noteTitle; 
 				note.note = input.noteBody; 
 				note.update(); 
+				
+				//update data object
+				data.title = note.title;
+				data.note = note.note.slice(0,20);
 			}
 		}
 	}
@@ -65,14 +69,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-03 02:08:39</sys_created_on>
         <sys_id>fa17410f1b33201032eeff37dc4bcba1</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Notes Body</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_fa17410f1b33201032eeff37dc4bcba1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-05-03 07:26:11</sys_updated_on>
+        <sys_updated_on>2021-05-03 08:53:01</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default" ng-show="c.data.noteID">
   <div class="panel-heading clearfix">
     <div class="row">
